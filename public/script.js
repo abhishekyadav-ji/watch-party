@@ -7,7 +7,9 @@ let localStream;
 let peer;
 
 const config = {
-  iceServers: [{ urls: "stun:stun.l.google.com:19302" }]
+  iceServers: [
+    { urls: "stun:stun.l.google.com:19302" }
+  ]
 };
 
 function createPeer() {
@@ -28,7 +30,11 @@ async function startSharing() {
   createPeer();
 
   localStream = await navigator.mediaDevices.getDisplayMedia({
-    video: true,
+    video: {
+      width: 1280,
+      height: 720,
+      frameRate: 15
+    },
     audio: false
   });
 
