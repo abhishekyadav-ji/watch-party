@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Watch Party</title>
-  <style>
-    body {
-      margin: 0;
-      background: black;
-      color: white;
-      font-family: Arial;
-      text-align: center;
-    }
-
-    button {
-      padding: 10px 20px;
-      font-size: 16px;
-      margin: 15px;
-      cursor: pointer;
-    }
-
-    video {
-      width: 100vw;
-      height: 100vh;
-      object-fit: contain;
-      background: black;
-    }
-
-    #localVideo {
-      display: none;
-    }
-  </style>
+  <title>Watch Party 🎬</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <button onclick="startSharing()">Start Sharing</button>
+  <div class="container">
+    <h1>🎬 Watch Party</h1>
 
-  <video id="localVideo" autoplay playsinline muted></video>
-  <video id="remoteVideo" autoplay playsinline></video>
+    <div class="video-box">
+      <video id="video" controls></video>
+    </div>
+
+    <div class="controls">
+      <input type="text" id="videoURL" placeholder="Paste video link here..." />
+      <button onclick="loadVideo()">Load Video</button>
+    </div>
+  </div>
 
   <script src="/socket.io/socket.io.js"></script>
   <script src="script.js"></script>
-
 </body>
 </html>
