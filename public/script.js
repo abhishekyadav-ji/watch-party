@@ -30,13 +30,14 @@ async function startSharing() {
   createPeer();
 
   localStream = await navigator.mediaDevices.getDisplayMedia({
-    video: {
-      width: 1280,
-      height: 720,
-      frameRate: 15
-    },
-    audio: false
-  });
+  video: {
+    width: 1280,
+    height: 720,
+    frameRate: 15
+  },
+  audio: true
+});
+
 
   localVideo.srcObject = localStream;
 
