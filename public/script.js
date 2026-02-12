@@ -26,17 +26,21 @@ function createPeer() {
   };
 }
 
-async function startSharing() {
-  createPeer();
+async function shareScreen() {
+  const video = document.getElementById("video");
 
-  localStream = await navigator.mediaDevices.getDisplayMedia({
-  video: {
-    width: 1280,
-    height: 720,
-    frameRate: 15
-  },
-  audio: true
-});
+  try {
+    const stream = await navigator.mediaDevices.getDisplayMedia({
+      video: true,
+      audio: true
+    });
+
+    video.srcObject = stream;
+    video.play();
+  } catch (err) {
+    console.error("Error sharing screen:", err);
+  }
+}
 
 
   localVideo.srcObject = localStream;
